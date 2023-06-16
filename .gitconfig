@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Travis D
+	email = travisdock@gmail.com
+[core]
+	excludesfile = /Users/travisdockter/.gitignore
+	pager = less -FX
