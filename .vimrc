@@ -3,11 +3,12 @@ syntax on
 " indent 2 spaces
 set shiftwidth=2
 set expandtab
+
 " auto indent when I hit return
 set autoindent
 set smartindent
 
-" Don't remove indent form comments
+" Don't remove indent from comments
 set cindent cinkeys-=0#
 
 " Line numbering
