@@ -15,6 +15,7 @@ set cindent cinkeys-=0#
 set number
 highlight LineNr ctermfg=DarkGrey ctermbg=NONE cterm=NONE
 " Have to set and then clear CursorLine because it contains highlighting for the numbers
+" To unset temporarily for copying and whatnot :set nonu
 set cursorline
 highlight clear CursorLine
 highlight CursorLineNR ctermfg=yellow
