@@ -25,5 +25,8 @@ highlight CursorLineNR ctermfg=yellow
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" More inclusive Dockerfile syntax highlighting
+autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
+
 imap <silent> <C-j> <Plug>(copilot-next)
 imap <silent> <C-k> <Plug>(copilot-prev)

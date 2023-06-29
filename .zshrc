@@ -2,11 +2,11 @@ COLOR_DEF=$'%f'
 COLOR_DIR=$'%F{197}'
 COLOR_GIT=$'%F{39}'
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF} $ '
+export PROMPT='${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF} 🛠️  '
 
 alias gst="git status"
 alias dc="docker compose"
-#alias dctest="docker compose run --rm web 'RAILS_ENV=test bundle exec rspec '"
+alias dctest="docker compose run -e RAILS_ENV=test --rm web bundle exec rspec"
 alias tat="tmux attach -t"
 alias tlist="tmux list-sessions"
 alias tnew="tmux new-session -s"

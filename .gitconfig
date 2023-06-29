@@ -3,7 +3,10 @@
 	name = Name
 	email = email
 [core]
+        editor = vim
 	excludesfile = /Users/travisdockter/.gitignore
 	pager = less -FX
+[grep]
+  lineNumber = true
 [push]
 	autoSetupRemote = true
