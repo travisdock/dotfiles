@@ -28,5 +28,11 @@ match ExtraWhitespace /\s\+$/
 " More inclusive Dockerfile syntax highlighting
 autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
 
+" Use Ag in CtrlP
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 imap <silent> <C-j> <Plug>(copilot-next)
 imap <silent> <C-k> <Plug>(copilot-prev)

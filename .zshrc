@@ -10,6 +10,8 @@ alias dctest="docker compose run -e RAILS_ENV=test --rm web bundle exec rspec"
 alias tat="tmux attach -t"
 alias tlist="tmux list-sessions"
 alias tnew="tmux new-session -s"
+alias ff="vim -c CtrlP"
+
 # Prompt with git from https://gist.github.com/reinvanoyen/05bcfe95ca9cb5041a4eafd29309ff29
 function parse_git_branch() {
       git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
