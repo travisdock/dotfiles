@@ -11,7 +11,7 @@ function parse_git_branch() { git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/
 setopt PROMPT_SUBST
 # This fixed my emoji problems
 # https://github.com/ohmyzsh/ohmyzsh/issues/7945#issuecomment-508724741
-export PROMPT='${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF} %{%G🛠️%}  '
+export PROMPT='${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}%{%G🛠️%}  '
 
 # Aliases
 alias gst="git status"
