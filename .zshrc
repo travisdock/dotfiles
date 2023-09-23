@@ -22,4 +22,3 @@ alias tlist="tmux list-sessions"
 alias tnew="tmux new-session -s"
 alias ff="vim -c CtrlP"
 
-
