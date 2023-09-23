@@ -1,3 +1,4 @@
+" You will need to install ctrlp.vim and Copilot.vim
 syntax on
 
 " indent 2 spaces
