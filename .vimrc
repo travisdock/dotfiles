@@ -38,5 +38,6 @@ endif
 "let g:ctrlp_map = 'ff<Enter>'
 let g:ctrlp_map = 'ff'
 
+" To update copilot go to ~/.vim/pack/plugins/start/copilot.vim and run git pull
 imap <silent> <C-j> <Plug>(copilot-next)
 imap <silent> <C-k> <Plug>(copilot-prev)
