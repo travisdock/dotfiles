@@ -15,6 +15,7 @@ export PROMPT='${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}%{%GðŸ›
 
 # Aliases
 alias gst="git status"
+alias gfp="git fetch --prune"
 alias dc="docker compose"
 alias dctest="docker compose run -e RAILS_ENV=test --rm web bundle exec rspec"
 alias tat="tmux attach -t"
