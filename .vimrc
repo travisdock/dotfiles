@@ -1,6 +1,8 @@
 " You will need to install ctrlp.vim and Copilot.vim
 syntax on
 
+set foldmethod=manual
+
 " indent 2 spaces
 set shiftwidth=2
 set expandtab
