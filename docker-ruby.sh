@@ -1,5 +1,34 @@
 #!/bin/bash
 
+# Display fun title page
+clear
+gum style \
+    --foreground 212 \
+    --border-foreground 212 \
+    --border double \
+    --align center \
+    --width 50 \
+    --margin "1 2" \
+    --padding "2 4" \
+    '╔╦╗┌─┐┌─┐┬┌─┌─┐┬─┐  ╦═╗┬ ┬┌┐ ┬ ┬' \
+    ' ║║│ ││  ├┴┐├┤ ├┬┘  ╠╦╝│ │├┴┐└┬┘' \
+    '═╩╝└─┘└─┘┴ ┴└─┘┴└─  ╩╚═└─┘└─┘ ┴ '
+
+gum style \
+    --foreground 199 \
+    --align center \
+    --italic \
+    "Ruby Development Environment Manager"
+
+echo
+gum style \
+    --foreground 99 \
+    --align center \
+    "🐳 Docker + 💎 Ruby = ❤️"
+
+echo
+gum spin --spinner dot --title "Initializing..." -- sleep 1
+
 # Ask for container name
 CONTAINER_NAME=$(gum input --placeholder "Container name (leave empty for default)")
 
