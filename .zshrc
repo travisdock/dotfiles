@@ -1,5 +1,5 @@
 # Docker completion stuff I guess
-autoload -Uz compinit && compinit
+#autoload -Uz compinit && compinit
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
@@ -18,10 +18,12 @@ alias gst="git status"
 alias gfp="git fetch --prune"
 alias dc="docker compose"
 alias dctest="docker compose run -e RAILS_ENV=test --rm web bundle exec rspec"
-alias dbox="docker run -it --rm -v $(pwd):/development -w /development ruby:3.2.1 bash"
+alias dbox="docker run -it --rm -v $(pwd):/development -w /development ruby:3.4.4 bash"
 alias tat="tmux attach -t"
 alias tlist="tmux list-sessions"
 alias tnew="tmux new-session -s"
 alias ff="vim -c CtrlP"
+alias druby="~/development/dotfiles/docker-ruby.sh"
 
 alias kamal='docker run -it --rm -v "${PWD}:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ssh/:/home/user/.ssh ghcr.io/basecamp/kamal:latest'
+export PATH=~/.npm-global/bin:$PATH
