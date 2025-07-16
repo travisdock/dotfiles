@@ -45,9 +45,14 @@ SESSION_TYPE=$(gum choose "IRB session" "Bash session" --header "What type of se
 # Select Ruby version
 RUBY_VERSION=$(gum choose "3.4" "3.3" "3.2" "3.1" "3.0" "2.7" --header "Select Ruby version:")
 
+# Get current user info for container user mapping
+USER_ID=$(id -u)
+GROUP_ID=$(id -g)
+USERNAME=$(whoami)
+
 if [ "$SESSION_TYPE" = "IRB session" ]; then
     # For IRB, just run the container with irb
-    DOCKER_CMD="docker run -it --rm $NAME_OPTION ruby:${RUBY_VERSION} irb"
+    DOCKER_CMD="docker run -it --rm $NAME_OPTION --user $USER_ID:$GROUP_ID ruby:${RUBY_VERSION} irb"
 else
     # For Bash session, ask about mounting and ports
     if gum confirm "Mount current directory as /app?"; then
@@ -65,8 +70,14 @@ else
         PORT_OPTION=""
     fi
 
-    # Build the docker command for bash
-    DOCKER_CMD="docker run -it --rm $NAME_OPTION $MOUNT_OPTION $WORKDIR_OPTION $PORT_OPTION ruby:${RUBY_VERSION} bash"
+    # Build the docker command for bash with user creation
+    if [ -n "$WORKDIR_OPTION" ]; then
+        # If working directory is specified, use 'su -c' to preserve it
+        DOCKER_CMD="docker run -it --rm $NAME_OPTION $MOUNT_OPTION $WORKDIR_OPTION $PORT_OPTION ruby:${RUBY_VERSION} bash -c 'groupadd -g $GROUP_ID $USERNAME 2>/dev/null || true && useradd -u $USER_ID -g $GROUP_ID -m -s /bin/bash $USERNAME 2>/dev/null || true && cd /app && su $USERNAME'"
+    else
+        # If no working directory, use regular 'su -' to go to home
+        DOCKER_CMD="docker run -it --rm $NAME_OPTION $MOUNT_OPTION $PORT_OPTION ruby:${RUBY_VERSION} bash -c 'groupadd -g $GROUP_ID $USERNAME 2>/dev/null || true && useradd -u $USER_ID -g $GROUP_ID -m -s /bin/bash $USERNAME 2>/dev/null || true && su - $USERNAME'"
+    fi
 fi
 
 # Show the command that will be executed
